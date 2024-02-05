@@ -1,65 +1,32 @@
 body {
-    background-color: color-mix(in srgb, #D22D5D 40%, #DB577D 60%);
-}
-
-.calm-navbar {
-    background-color: #99cc99; /* Soft green background color */
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle box shadow for a lifted appearance */
-  }
-  
-  .calm-navbar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: url('homepage_bg.jpg') center/cover no-repeat fixed;
   }
   
-  .calm-navbar a {
-    text-decoration: none;
-    color: #333; /* Dark gray text color */
-    font-size: 18px;
-    transition: color 0.3s ease-in-out;
+  .quote-container {
+    text-align: center;
+    max-width: 600px;
+    background-color: rgba(177, 232, 209, 0.8);
+    border-radius: 12px;
   }
   
-  .calm-navbar a:hover {
-    color: #006600; /* Dark green on hover for a subtle change */
-  }
-
-.heading {
-    font-style: italic;
-}
-
-.heading h1 {
-    font-size: 50px;
-    position: relative;
-    top: 20px;
-    text-align-last: center;
-}
-
-.homepage_textcontainer {
-    float: left;
-    margin-left: 2%;
-    margin-top: 50px;
-    border-radius: 5px;
-    width: 500px;
-    height: 200px;
-    background-color: rgba(64, 139, 191, 0.5);
-}
-
-.homepage_imagecontainer {
-    position: absolute;
-    width: 400px;
-    height: 500px;
-    margin-top: 50px;
-    margin-left: 35%;
-    border: 10px solid rgba(64, 139, 191, 0.5);
-    border-radius: 10px;
-    object-fit: fill;
+  .quote {
+    font-size: 24px;
+    color: #333;
+    margin: 20px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s, transform 1s;
   }
   
-  img {
-    height: 100%;
-    width: 100%;
+  /* Add some animation when quote appears */
+  .quote.show {
+    opacity: 1;
+    transform: translateY(0);
   }
+  
