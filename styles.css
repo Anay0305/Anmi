@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .sticky-header {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  /* Adjust the body padding to avoid content being hidden behind the fixed header */
+  body {
+    padding-top: 70px; /* Adjust this value based on your header height */
+  }
+  
