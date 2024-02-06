@@ -40,3 +40,8 @@ displayRandomQuote();
 setInterval(() => {
   displayRandomQuote();
 }, 6000);
+
+function toggleNavbar() {
+  var navbar = document.getElementById("navbar");
+  navbar.style.display = (navbar.style.display === "none") ? "block" : "none";
+}
