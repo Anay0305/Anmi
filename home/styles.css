@@ -10,7 +10,7 @@
   --main-accent: #6bfaff;
   --main-bg: #111111;
   --darker-bg: #151515;
-  --secondary: #6bfaff;
+  --secondary: rgba(107, 250, 255, 0.7);
 }
 
 body::-webkit-scrollbar {
@@ -250,7 +250,7 @@ a {
   transform: translate(-50%, -50%);
   text-align: center;
   max-width: 600px;
-  background-color: var(--main-accent);
+  background-color: var(--secondary);
   border-radius: 12px;
 }
 

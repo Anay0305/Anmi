@@ -58,6 +58,21 @@ const themes = [
   "#E2F780",
   
 ];
+
+function hexToRgb(hex) {
+  // Remove # if present
+  hex = hex.replace(/^#/, '');
+
+  // Parse hexadecimal components
+  let r = parseInt(hex.substring(0, 2), 16);
+  let g = parseInt(hex.substring(2, 4), 16);
+  let b = parseInt(hex.substring(4, 6), 16);
+
+  // Return RGB representation
+  return `rgba(${r}, ${g}, ${b}, 0.7)`;
+}
+
+
 const root = document.querySelector(":root");
 const themeToggle = document.querySelector("#navbar__logo");
 let currentTheme = 0;
@@ -67,6 +82,7 @@ themeToggle.addEventListener("click", () => {
     currentTheme = 0;
   }
   root.style.setProperty("--main-accent", themes[currentTheme]);
+  root.style.setProperty("--secondary", hexToRgb(themes[currentTheme]));
 });
 
 const hamburger = document.querySelector("#mobile-menu");
@@ -123,23 +139,6 @@ function ordinalSuffixOf(n) {
 }
 
 hamburger.addEventListener("click", mobileMenu);
-
-const memo = document.querySelector("#mem__btn");
-const dates = document.querySelector("#dates__btn");
-
-memo.addEventListener("click", function () {
-  memo.classList.add("active__btn");
-  dates.classList.remove("active__btn");
-  document.querySelector("#memorable").classList.remove("noshow");
-  document.querySelector("#special_dates").classList.add("noshow");
-});
-
-dates.addEventListener("click", function () {
-  dates.classList.add("active__btn");
-  memo.classList.remove("active__btn");
-  document.querySelector("#special_dates").classList.remove("noshow");
-  document.querySelector("#memorable").classList.add("noshow");
-});
 
 const update_btn = document.querySelector("#btn_update");
 update_btn.addEventListener("click", function () {
