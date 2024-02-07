@@ -17,7 +17,7 @@ const quotes = [
     '“Love is an endless mystery, for it has nothing else to explain it.” - Rabindranath Tagore',
     '“My heart is, and always will be, yours.” - Jane Austen'
   ];
-  
+
 
 // Function to display a random quote
 function displayRandomQuote() {
@@ -41,19 +41,6 @@ setInterval(() => {
   displayRandomQuote();
 }, 6000);
 
-function toggleNavbar() {
-  var navbar = document.getElementById("navbar");
-  navbar.style.visibility = (navbar.style.visibility === "hidden") ? "visible" : "hidden";
-}
-
-// typed js
-const typed = new Typed(".typing", {
-  strings: ["Join the coding of Robolution!","Join the era of magical Robolution!","Learn magic of technologies through projects !","Express yourself with magical English !"],
-  loop: true,
-  typeSpeed: 80,
-  backSpeed: 40,
-});
-
 // Theme changer
 const themes = [
   "#ff6600",
@@ -72,7 +59,7 @@ const themes = [
   
 ];
 const root = document.querySelector(":root");
-const themeToggle = document.querySelector("#main-name");
+const themeToggle = document.querySelector("#navbar__logo");
 let currentTheme = 0;
 themeToggle.addEventListener("click", () => {
   currentTheme++;
@@ -89,25 +76,77 @@ const mobileMenu = () => {
   hamburger.classList.toggle("is-active");
   tabs.classList.toggle("active");
 };
+// script.js
+
+document.addEventListener("DOMContentLoaded", function () {
+  fetch("memories.json")
+    .then(response => response.json())
+    .then(data => {
+      appendTimelineMessages(data.memorableMoments, "memorable");
+      appendTimelineMessages(data.specialDates, "special_dates");
+    });
+});
+
+function appendTimelineMessages(messages, containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  const timelineList = container.querySelector("ul");
+
+  messages.forEach(message => {
+    const listItem = document.createElement("li");
+    const h1 = message.date ? `<h1>${formatDate(message.date)}</h1>` : "";
+    const messageContent = `
+      <div class="timeline__content">
+        ${h1}
+        <p>${message.message}</p>
+      </div>
+    `;
+    listItem.innerHTML = messageContent;
+    timelineList.appendChild(listItem);
+  });
+}
+
+function formatDate(dateString) {
+  const day = parseInt(dateString.substring(0, 2));
+  const month = parseInt(dateString.substring(2, 4));
+  const year = parseInt(dateString.substring(4));
+  
+  const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  
+  return `${day}${ordinalSuffixOf(day)} ${monthNames[month - 1]} ${year}`;
+}
+
+function ordinalSuffixOf(n) {
+  const s=["th","st","nd","rd"], v=n%100;
+  return (s[(v-20)%10]||s[v]||s[0]);
+}
 
 hamburger.addEventListener("click", mobileMenu);
 
-// experience projects toggle
-const exp = document.querySelector("#exp__btn");
-const prj = document.querySelector("#prj__btn");
+const memo = document.querySelector("#mem__btn");
+const dates = document.querySelector("#dates__btn");
 
-prj.addEventListener("click", function () {
-  prj.classList.add("active__btn");
-  exp.classList.remove("active__btn");
-  document.querySelector("#projects").classList.remove("noshow");
-  document.querySelector("#experience").classList.add("noshow");
+memo.addEventListener("click", function () {
+  memo.classList.add("active__btn");
+  dates.classList.remove("active__btn");
+  document.querySelector("#memorable").classList.remove("noshow");
+  document.querySelector("#special_dates").classList.add("noshow");
 });
 
-exp.addEventListener("click", function () {
-  exp.classList.add("active__btn");
-  prj.classList.remove("active__btn");
-  document.querySelector("#experience").classList.remove("noshow");
-  document.querySelector("#projects").classList.add("noshow");
+dates.addEventListener("click", function () {
+  dates.classList.add("active__btn");
+  memo.classList.remove("active__btn");
+  document.querySelector("#special_dates").classList.remove("noshow");
+  document.querySelector("#memorable").classList.add("noshow");
+});
+
+const update_btn = document.querySelector("#btn_update");
+update_btn.addEventListener("click", function () {
+  document.querySelector("#love_code").classList.remove("noshow");
+  document.querySelector("#btn_update").classList.remove("update_btn");
+  document.querySelector("#btn_update").classList.add("submit_btn");
+  document.querySelector("#btn_update").textContent = "Submit";
 });
 
 //highlight active menu
@@ -115,9 +154,9 @@ const navLogo = document.querySelector("#navbar__logo");
 const highlightMenu = () => {
   const activeElement = document.querySelector(".highlight");
   const homeMenu = document.querySelector("#home-page");
-  const aboutMenu = document.querySelector("#about-page");
-  const resumeMenu = document.querySelector("#resume-page");
-  const stackMenu = document.querySelector("#stack-page");
+  const aboutMenu = document.querySelector("#gallery-page");
+  const resumeMenu = document.querySelector("#memories-page");
+  const stackMenu = document.querySelector("#special-page");
 
   let scrollPos = window.scrollY;
   if (window.innerWidth > 960 && scrollPos < 500) {
