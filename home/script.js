@@ -43,5 +43,5 @@ setInterval(() => {
 
 function toggleNavbar() {
   var navbar = document.getElementById("navbar");
-  navbar.style.display = (navbar.style.display === "none") ? "block" : "none";
+  navbar.style.visibility = (navbar.style.visibility === "hidden") ? "visible" : "hidden";
 }
