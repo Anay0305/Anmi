@@ -124,7 +124,7 @@ a {
     }
     .navbar__menu {
       display: none;
-      grid-template-columns: 3;
+      grid-template-columns: 4;
       margin: 0;
       width: 100%;
       position: absolute;
@@ -250,7 +250,7 @@ a {
   transform: translate(-50%, -50%);
   text-align: center;
   max-width: 600px;
-  background-color: rgba(177, 232, 209, 0.8);
+  background-color: var(--main-accent);
   border-radius: 12px;
 }
 
