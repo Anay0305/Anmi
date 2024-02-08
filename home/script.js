@@ -1,4 +1,64 @@
-// Change the quote text dynamically
+// Connection URI
+const uri = "mongodb+srv://anaysumeet:Anmi2911@cluster0.luc06iq.mongodb.net/?retryWrites=true&w=majority"; // Update with your MongoDB connection URI
+
+// Database Name
+const dbName = 'Website'; // Update with your database name
+
+// Function to connect to MongoDB
+async function connectToMongoDB() {
+    const client = new mongodb.MongoClient(uri);
+
+    try {
+        // Connect to the MongoDB server
+        await client.connect();
+
+        console.log('Connected to MongoDB.');
+
+        return client.db(dbName);
+    } catch (err) {
+        console.error('Error connecting to MongoDB:', err);
+        throw err;
+    }
+}
+
+// Function to retrieve memorable moments from MongoDB
+async function getMemorableMomentsFromMongoDB(db) {
+    try {
+        // Access the collection (assuming it's named 'memorableMoments')
+        const collection = db.collection('memorableMoments');
+
+        // Retrieve all documents from the collection
+        const moments = await collection.find({}).toArray();
+
+        moments.sort((a, b) => {
+          const dateA = new Date(a.date);
+          const dateB = new Date(b.date);
+          return dateA - dateB;
+      });
+
+        return moments;
+    } catch (err) {
+        console.error('Error retrieving memorable moments from MongoDB:', err);
+        throw err;
+    }
+}
+
+// Function to add a moment to MongoDB
+async function addMomentToMongoDB(db, date, message) {
+    try {
+        // Access the collection (assuming it's named 'memorableMoments')
+        const collection = db.collection('memorableMoments');
+
+        // Insert the new moment into the collection
+        await collection.insertOne({ date, message });
+
+        console.log('New moment added successfully to MongoDB.');
+    } catch (err) {
+        console.error('Error adding moment to MongoDB:', err);
+        throw err;
+    }
+}
+
 const quoteTextElement = document.getElementById('quoteText');
 const quotes = [
     '“Love is composed of a single soul inhabiting two bodies.” - Aristotle',
@@ -91,15 +151,21 @@ const tabs = document.querySelector(".navbar__menu");
 const mobileMenu = () => {
   hamburger.classList.toggle("is-active");
   tabs.classList.toggle("active");
-};
-// script.js
+}
 
-document.addEventListener("DOMContentLoaded", function () {
-  fetch("memories.json")
-    .then(response => response.json())
-    .then(data => {
-      appendTimelineMessages(data.memorableMoments, "memorable");
-      appendTimelineMessages(data.specialDates, "special_dates");
+document.addEventListener("DOMContentLoaded", async function () {
+  connectToMongoDB()
+    .then(async (db) => {
+        const moments = await getMemorableMomentsFromMongoDB(db);
+        moments.forEach(data => {
+            appendTimelineMessages(data, "memorable");
+          });
+
+        await db.client.close();
+        console.log('Disconnected from MongoDB.');
+    })
+    .catch(err => {
+        console.error('An error occurred:', err);
     });
 });
 
@@ -124,13 +190,13 @@ function appendTimelineMessages(messages, containerId) {
 }
 
 function formatDate(dateString) {
-  const day = parseInt(dateString.substring(0, 2));
-  const month = parseInt(dateString.substring(2, 4));
-  const year = parseInt(dateString.substring(4));
+  const day = parseInt(dateString.substring(8));
+  const month = parseInt(dateString.substring(5, 7));
+  const year = parseInt(dateString.substring(0,4));
   
   const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   
-  return `${day}${ordinalSuffixOf(day)} ${monthNames[month - 1]} ${year}`;
+  return `${day}${ordinalSuffixOf(day)} ${monthNames[month - 1]}, ${year}`;
 }
 
 function ordinalSuffixOf(n) {
@@ -143,9 +209,61 @@ hamburger.addEventListener("click", mobileMenu);
 const update_btn = document.querySelector("#btn_update");
 update_btn.addEventListener("click", function () {
   document.querySelector("#love_code").classList.remove("noshow");
-  document.querySelector("#btn_update").classList.remove("update_btn");
-  document.querySelector("#btn_update").classList.add("submit_btn");
-  document.querySelector("#btn_update").textContent = "Submit";
+  document.querySelector("#btn_submit").classList.remove("noshow");
+  document.querySelector("#btn_update").classList.add("noshow");
+});
+
+function checkPASS() {  
+  const passwordInput = document.getElementById("love_code");
+  const password = passwordInput.value;
+
+  if (password === "Anmi@2911") {
+      document.querySelector("#before_memo_questions").classList.add("noshow");
+      document.querySelector("#memo_qts").classList.remove("noshow");
+      passwordInput.value = "";
+  } else {
+    passwordInput.value = "";
+    document.querySelector("#love_code").classList.add("noshow");
+    document.querySelector("#btn_submit").classList.add("noshow");
+    document.querySelector("#btn_update").classList.remove("noshow");
+  }
+}
+
+const submitButton = document.getElementById('btn_submit_memo');
+
+// Add event listener to the submit button
+submitButton.addEventListener('click', () => {
+    // Get input values
+    var date = document.querySelector('.input_date_memo').value;
+    var message = document.querySelector('.input_text_memo').value;
+
+    connectToMongoDB()
+    .then(async (db) => {
+        await addMomentToMongoDB(db, date, message);
+
+        await db.client.close();
+        console.log('Disconnected from MongoDB.');
+    })
+    .catch(err => {
+        console.error('An error occurred:', err);
+    });
+    const container = document.getElementById(memorable);
+    if (!container) return;
+  
+    const timelineList = container.querySelector("ul");
+    const listItem = document.createElement("li");
+    const h1 = message.date ? `<h1>${formatDate(date)}</h1>` : "";
+    const messageContent = `
+      <div class="timeline__content">
+        ${h1}
+        <p>${message}</p>
+      </div>
+    `;
+    listItem.innerHTML = messageContent;
+    timelineList.appendChild(listItem);
+    document.querySelector("#love_code").classList.add("noshow");
+    document.querySelector("#btn_submit").classList.add("noshow");
+    document.querySelector("#btn_update").classList.remove("noshow");
 });
 
 //highlight active menu

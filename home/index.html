@@ -57,7 +57,6 @@
 
   <div class="scrollFade">
     <section class="memories__section" id="memories">
-      <!-- Content for Memories page goes here -->
       <div class="toggle__bar">
         <button class="toggle__btn  active__btn" id="mem__btn"><h1>Memorable Moments</h1></button>
     </div>
@@ -65,25 +64,33 @@
     <div class="resume__container">
         <div class="timeline" id="memorable">
             <ul>
-            <!-- Memorable moments will be appended here dynamically -->
             </ul>
         </div>
     </div>
-    <span id="update_timeline">I am really sorry love, if i missed any of our memorable and precious moments, try adding them by click on the button below.<br>
-    <input class="input_password noshow" type="password" id="love_code">
-    <button class="update_btn" id="btn_update">Add new memories</button>
+    <div class="b_memo_qs" id="before_memo_questions">I am really sorry love, if i missed any of our memorable and precious moments, try adding them by click on the button below.<br>
+    <input class="input_password noshow" type="password" id="love_code" placeholder="Enter the Password">
+    <button class="update_btn" id="btn_update" onclick="checkPASS()">Add new memories</button>
+    <button class="submit_btn noshow" id="btn_submit" onclick="checkPASS()">Submit</button><br>
+    </div>
+    <div class="memo_questions noshow" id="memo_qts">
+      <label class="questions_update"><em>If you remember the date, when this special memory took place fill it down darling or leave it empty if you can't recall it no worries!!</em></label><br>
+      <input class="input_date_memo" type="date"><br>
+      <label class="questions_update"><em>Kindly write down the sweet memory you want me to mention in the timeline above sweetheart.</em></label><br>
+      <input class="input_text_memo" type="text" id="text_memo" placeholder="Tryna Imagine your partner with you maybe you can explain it better."><br>
+      <button class="submit_btn_memo" id="btn_submit_memo">Submit</button><br>
+    </div>
     </section>
   </div>
 
   <div class="scrollFade">
     <section class="special__section" id="special">
-      <!-- Content for Special Message page goes here -->
       <h2>Special Message Section</h2>
       <p>This is the special message section. You can add your special messages or announcements here.</p>
     </section>
   </div>
 
-  <script src="script.js"></script>
+  <script src="https://unpkg.com/mongodb@6.3.0/"></script>
+  <script type="module" src="script.js"></script>
   <script src="scrollfade.js"></script>
 </body>
 </html>
