@@ -115,6 +115,4 @@ button.tick:hover {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAACXBIWXMAABYlAAAWJQFJUiTwAAACJElEQVQYlQXBQQ6AMAgEsO9ZbN38W3rICCAjZAnDb7DsjkObS4YHrqT+YiMSFyL9zhGYF2AhP0D9wlB5zxDHRBc2H5+Zsgl4ISoQJXKp6yATuQkRLE4Hvh+JB7gGfsnCCvwV8jKJJLwHogW0piJNoQzIK0IArdEvfBxn9Q9Rw7ADbHqTmBTUMSKw7F4LyJGjEg+yN3ITw8Kf6GY6/kNc8DA0V1DscAjAAT4BxzfSJAXnZdjHdo8y7pA27wi6Hc3BoIBi7yTdRDIMZC2RucFvYAAAAAElFTkSuQmCC');
-    opacity: 0.3; /* Adjust the opacity as needed */
 }

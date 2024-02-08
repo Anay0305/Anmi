@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1408006177880832" crossorigin="anonymous"></script>
@@ -67,7 +68,7 @@
             </ul>
         </div>
     </div>
-    <div class="b_memo_qs" id="before_memo_questions">I am really sorry love, if i missed any of our memorable and precious moments, try adding them by click on the button below.<br>
+    <div class="b_memo_qs noshow" id="before_memo_questions">I am really sorry love, if i missed any of our memorable and precious moments, try adding them by click on the button below.<br>
     <input class="input_password noshow" type="password" id="love_code" placeholder="Enter the Password">
     <button class="update_btn" id="btn_update" onclick="checkPASS()">Add new memories</button>
     <button class="submit_btn noshow" id="btn_submit" onclick="checkPASS()">Submit</button><br>
@@ -84,13 +85,29 @@
 
   <div class="scrollFade">
     <section class="special__section" id="special">
-      <h2>Special Message Section</h2>
-      <p>This is the special message section. You can add your special messages or announcements here.</p>
+      <div class="envelope">
+    </div>
+    
+    
+    <div class="card">
+      <div class="back"></div>
+      <div class="front">
+        <div class="f-box">
+          <img src="https://assets.codepen.io/4927073/ValCard.png" alt="">
+        </div>
+      </div>
+    
+      <div class="text-container">
+    
+        <p>
+          Happy Valentine's Day!!!
+        </p>
+      </div>
+    </div>
     </section>
   </div>
 
-  <script src="https://unpkg.com/mongodb@6.3.0/"></script>
-  <script type="module" src="script.js"></script>
+  <script src="script.js"></script>
   <script src="scrollfade.js"></script>
 </body>
 </html>
