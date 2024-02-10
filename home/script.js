@@ -71,6 +71,38 @@ themeToggle.addEventListener("click", () => {
   root.style.setProperty("--main-accent", themes[currentTheme]);
   root.style.setProperty("--secondary", hexToRgb(themes[currentTheme]));
 });
+
+const stamp = document.querySelector('.stamp');
+const envelope = document.querySelector('.envelope-wrapper');
+const letter = document.querySelector('.letter');
+const special___ = document.querySelector('.special__section');
+
+let isFlapped = false;
+
+stamp.addEventListener('click', () => {
+  stamp.style.visibility = "hidden";
+  letter.style.visibility = "visible";
+  envelope.classList.add('flap');
+  setTimeout(() => {
+    envelope.classList.add('closed');
+  }, 2000);
+  setTimeout(() => {
+    envelope.style.visibility = "hidden";
+  }, 2000);
+  isFlapped = true;
+});
+
+letter.addEventListener('click', () => {
+  envelope.style.visibility = "visible";
+  envelope.classList.remove('closed');
+  setTimeout(() => {
+    envelope.classList.remove('flap');
+    letter.style.visibility = "hidden";
+    stamp.style.visibility = "visible";
+  }, 2000);
+  isFlapped = false;
+});
+
 const hamburger = document.querySelector("#mobile-menu");
 const tabs = document.querySelector(".navbar__menu");
 //display hamburger menue
