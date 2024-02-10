@@ -727,3 +727,107 @@ color: var(--main-accent);
   transition: transform 0.5s ease-in-out;
   cursor: pointer; /* Change cursor to pointer on hover */
 }
+
+@media only screen and (max-width: 600px) {
+  .envelope > .letter {
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    width: 60%;
+    height: 135%;
+    background: var(--primary);
+    text-align: center;
+    transition: all 1s ease-in-out, bottom 1s ease-in-out;
+    box-shadow: 0 0 5px var(--shadow-color);
+    padding: 20px 10px;
+  }
+  .envelope-wrapper > .envelope {
+    position: relative;
+    width: 350px;
+    height: 230px;
+  }
+  .envelope-wrapper > .envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    border-top: 130px solid var(--envelope-tab);
+    border-right: 176px solid transparent;
+    border-left: 176px solid transparent;
+    transform-origin: top;
+    transition: all 0.5s ease-in-out 0.7s;
+  }
+  .envelope-wrapper > .envelope::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    width: 0px;
+    height: 0px;
+    border-top: 130px solid transparent;
+    border-right: 176px solid var(--envelope-cover);
+    border-bottom: 150px solid var(--envelope-cover);
+    border-left: 176px solid var(--envelope-cover);
+  }
+  .stamp {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: calc(50% - 25px); /* Center stamp vertically */
+    left: calc(50% - 25px); /* Center stamp horizontally */
+    z-index: 2; /* Ensure stamp is above the envelope */
+    box-shadow: 0 1px 6px var(--shadow-color);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .envelope > .letter {
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    width: 70%;
+    height: 135%;
+    background: var(--primary);
+    text-align: center;
+    transition: all 1s ease-in-out, bottom 1s ease-in-out;
+    box-shadow: 0 0 5px var(--shadow-color);
+    padding: 20px 10px;
+  }
+  .envelope-wrapper > .envelope {
+    position: relative;
+    width: 380px;
+    height: 230px;
+  }
+  .envelope-wrapper > .envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    border-top: 130px solid var(--envelope-tab);
+    border-right: 191px solid transparent;
+    border-left: 191px solid transparent;
+    transform-origin: top;
+    transition: all 0.5s ease-in-out 0.7s;
+  }
+  .envelope-wrapper > .envelope::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    width: 0px;
+    height: 0px;
+    border-top: 130px solid transparent;
+    border-right: 191px solid var(--envelope-cover);
+    border-bottom: 150px solid var(--envelope-cover);
+    border-left: 191px solid var(--envelope-cover);
+  }
+  .stamp {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    top: calc(50% - 27.5px); /* Center stamp vertically */
+    left: calc(50% - 27.5px); /* Center stamp horizontally */
+    z-index: 2; /* Ensure stamp is above the envelope */
+    box-shadow: 0 1px 6px var(--shadow-color);
+  }
+}
