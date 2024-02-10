@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anmi</title>
+  <link rel="shortcut icon" href="favico.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1408006177880832" crossorigin="anonymous"></script>
+  <nav class="navbar">
+    <div class="navbar__container">
+        
+        <a id="navbar__logo">Aasmi & Anay</a>
+    
+        <div class="navbar__toggle" id="mobile-menu">
+            <span class="bar"></span> 
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+            <li class="navbar__item">
+                <a href="#home" class="navbar__links" id="home-page">Home</a>
+            </li>
+            <li class="navbar__item">
+                <a href="#gallery" class="navbar__links" id="gallery-page">Gallery</a>
+            </li>
+            <li class="navbar__item">
+                <a href="#memories" class="navbar__links" id="memories-page">Memories</a>
+            </li>
+            <li class="navbar__item">
+                <a href="#special" class="navbar__links" id="special-page">Special Message</a>
+            </li>
+        </ul>
+    </div>
+  </nav>
+
+  <div class="scrollFade">
+    <section class="home__section" id="home">
+      <div class="quote-container" id="canva">
+        </script>
+        <p class="quote" id="quoteText">"Your quote goes here."</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="scrollFade">
+    <section class="gallery__section" id="gallery">
+      <!-- Content for Gallery page goes here -->
+      <h2>Gallery Section</h2>
+      <p>This is the gallery section. You can add your gallery images and descriptions here.</p>
+    </section>
+  </div>
+
+  <div class="scrollFade">
+    <section class="memories__section" id="memories">
+      <div class="toggle__bar">
+        <button class="toggle__btn  active__btn" id="mem__btn"><h1>Memorable Moments</h1></button>
+    </div>
+
+    <div class="resume__container">
+        <div class="timeline" id="memorable">
+            <ul>
+            </ul>
+        </div>
+    </div>
+    <div class="b_memo_qs noshow" id="before_memo_questions">I am really sorry love, if i missed any of our memorable and precious moments, try adding them by click on the button below.<br>
+    <input class="input_password noshow" type="password" id="love_code" placeholder="Enter the Password">
+    <button class="update_btn" id="btn_update" onclick="checkPASS()">Add new memories</button>
+    <button class="submit_btn noshow" id="btn_submit" onclick="checkPASS()">Submit</button><br>
+    </div>
+    <div class="memo_questions noshow" id="memo_qts">
+      <label class="questions_update"><em>If you remember the date, when this special memory took place fill it down darling or leave it empty if you can't recall it no worries!!</em></label><br>
+      <input class="input_date_memo" type="date"><br>
+      <label class="questions_update"><em>Kindly write down the sweet memory you want me to mention in the timeline above sweetheart.</em></label><br>
+      <input class="input_text_memo" type="text" id="text_memo" placeholder="Tryna Imagine your partner with you maybe you can explain it better."><br>
+      <button class="submit_btn_memo" id="btn_submit_memo">Submit</button><br>
+    </div>
+    </section>
+  </div>
+
+  <div class="scrollFade">
+    <section class="special__section" id="special">
+      <div class="envelope">
+    </div>
+    
+    
+    <div class="card">
+      <div class="back"></div>
+      <div class="front">
+        <div class="f-box">
+          <img src="https://assets.codepen.io/4927073/ValCard.png" alt="">
+        </div>
+      </div>
+    
+      <div class="text-container">
+    
+        <p>
+          Happy Valentine's Day!!!
+        </p>
+      </div>
+    </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="scrollfade.js"></script>
+</body>
+</html>
