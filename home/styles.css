@@ -264,14 +264,16 @@ margin: 50px 50px;
 box-sizing: border-box;
 display:grid;
 place-content:center;
+justify-content: center;
+align-items: center;
 }
 
 .gallery{
   position:relative;
   margin-top: 100px;
   margin-bottom: 50px;
-  left: calc(50% - 150px);
-  width:300px;
+  left: 35%;
+  width:25%;
   height:150px;
   transform-style:preserve-3d;
   animation:rotate 60s linear infinite;
@@ -358,10 +360,6 @@ place-content:center;
   object-fit:contain;
 }
 
-/* 
-optional
-*/
-
 .ts {/*thumbnails bar*/
   perspective:100px;
   perspective-origin:center center;
@@ -409,6 +407,115 @@ transitions
 .t:hover, :checked + .t {
   transition:transform 0.5s, bottom 0.6s, left 0.6s, width 0.3s, box-shadow 0s;
 }
+
+@media only screen and (max-width: 1150px) {
+  
+  .gallery{
+    margin-top: 90px;
+    margin-bottom: 50px;
+    left: calc(50% - 140px);
+    width:280px;
+    height:130px;
+  }
+  .gallery span{
+    transform:rotateY(calc(var(--i) * 45deg)) translateZ(345px);
+  }
+  .w {
+    background-color:transparent;
+    border-radius: 15px;
+    margin-top: 30px;
+    width: 800px;
+    height:80vmin;
+    margin-bottom: 70px;
+  }
+}
+@media only screen and (max-width: 915px) {
+  
+  .gallery{
+    margin-top: 90px;
+    margin-bottom: 50px;
+    left: calc(50% - 122.5px);
+    width:245px;
+    height:130px;
+  }
+  .gallery span{
+    transform:rotateY(calc(var(--i) * 45deg)) translateZ(300px);
+  }
+  .w {
+    background-color:transparent;
+    border-radius: 15px;
+    margin-top: 30px;
+    width: 650px;
+    height:80vmin;
+    margin-bottom: 70px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+    
+    .gallery{
+      margin-top: 80px;
+      margin-bottom: 50px;
+      left: calc(50% - 90px);
+      width:180px;
+      height:130px;
+    }
+    .gallery span{
+      transform:rotateY(calc(var(--i) * 45deg)) translateZ(220px);
+    }
+    .w {
+      background-color:transparent;
+      border-radius: 15px;
+      margin-top: 30px;
+      width: 480px;
+      height:80vmin;
+      margin-bottom: 70px;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    
+    .gallery{
+      margin-top: 80px;
+      margin-bottom: 50px;
+      left: calc(50% - 70px);
+      width:140px;
+      height:100px;
+    }    
+    .gallery span{
+      transform:rotateY(calc(var(--i) * 45deg)) translateZ(172px);
+    }
+    .w {
+      background-color:transparent;
+      border-radius: 15px;
+      margin-top: 30px;
+      width: 380px;
+      height:80vmin;
+      margin-bottom: 70px;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    
+    .gallery{
+      margin-top: 70px;
+      margin-bottom: 50px;
+      left: calc(50% - 45px);
+      width:90px;
+      height:80px;
+    }    
+    .gallery span{
+      transform:rotateY(calc(var(--i) * 45deg)) translateZ(110px);
+    }
+    .w {
+      background-color:transparent;
+      border-radius: 15px;
+      margin-top: 30px;
+      width: 250px;
+      height:80vmin;
+      margin-bottom: 70px;
+    }
+  }
 
 .memories__section {
 background-color:var(--main-bg);
