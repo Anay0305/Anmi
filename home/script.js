@@ -197,7 +197,7 @@ const highlightMenu = () => {
     homeMenu.classList.add("highlight");
     aboutMenu.classList.remove("highlight");
     return;
-  } else if (window.innerWidth > 960 && scrollPos < 1600) {
+  } else if (window.innerWidth > 960 && scrollPos < 1400) {
     aboutMenu.classList.add("highlight");
     homeMenu.classList.remove("highlight");
     resumeMenu.classList.remove("highlight");

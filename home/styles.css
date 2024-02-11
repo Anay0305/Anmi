@@ -260,7 +260,7 @@ transform: translateY(0);
 .gallery__section {
 background-color: var(--main-bg);
 border-radius: 20px;
-margin: 50px 50px;
+margin: 20px 20px;
 box-sizing: border-box;
 display:grid;
 place-content:center;
@@ -340,7 +340,7 @@ align-items: center;
 }
 
 .t img {
-  margin-top: 20px;
+  margin: auto;
   border-radius: 15px;
   display:block; width:100%; height:90%;
   object-fit:cover;
@@ -434,18 +434,18 @@ transitions
   .gallery{
     margin-top: 90px;
     margin-bottom: 50px;
-    left: calc(50% - 122.5px);
-    width:245px;
+    left: calc(50% - 127.5px);
+    width:255px;
     height:130px;
   }
   .gallery span{
-    transform:rotateY(calc(var(--i) * 45deg)) translateZ(300px);
+    transform:rotateY(calc(var(--i) * 45deg)) translateZ(315px);
   }
   .w {
     background-color:transparent;
     border-radius: 15px;
     margin-top: 30px;
-    width: 650px;
+    width: 700px;
     height:80vmin;
     margin-bottom: 70px;
   }
@@ -456,18 +456,18 @@ transitions
     .gallery{
       margin-top: 80px;
       margin-bottom: 50px;
-      left: calc(50% - 90px);
-      width:180px;
+      left: calc(50% - 97.5px);
+      width:195px;
       height:130px;
     }
     .gallery span{
-      transform:rotateY(calc(var(--i) * 45deg)) translateZ(220px);
+      transform:rotateY(calc(var(--i) * 45deg)) translateZ(240px);
     }
     .w {
       background-color:transparent;
       border-radius: 15px;
       margin-top: 30px;
-      width: 480px;
+      width: 540px;
       height:80vmin;
       margin-bottom: 70px;
     }
@@ -478,18 +478,18 @@ transitions
     .gallery{
       margin-top: 80px;
       margin-bottom: 50px;
-      left: calc(50% - 70px);
-      width:140px;
+      left: calc(50% - 80px);
+      width:160px;
       height:100px;
     }    
     .gallery span{
-      transform:rotateY(calc(var(--i) * 45deg)) translateZ(172px);
+      transform:rotateY(calc(var(--i) * 45deg)) translateZ(202px);
     }
     .w {
       background-color:transparent;
       border-radius: 15px;
       margin-top: 30px;
-      width: 380px;
+      width: 440px;
       height:80vmin;
       margin-bottom: 70px;
     }
@@ -499,20 +499,42 @@ transitions
     
     .gallery{
       margin-top: 70px;
-      margin-bottom: 50px;
-      left: calc(50% - 45px);
-      width:90px;
-      height:80px;
+      margin-bottom: 20px;
+      left: calc(50% - 60px);
+      width:120px;
+      height:100px;
     }    
     .gallery span{
-      transform:rotateY(calc(var(--i) * 45deg)) translateZ(110px);
+      transform:rotateY(calc(var(--i) * 45deg)) translateZ(150px);
     }
     .w {
       background-color:transparent;
       border-radius: 15px;
       margin-top: 30px;
-      width: 250px;
-      height:80vmin;
+      width: 300px;
+      height:100vmin;
+      margin-bottom: 70px;
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    
+    .gallery{
+      margin-top: 70px;
+      margin-bottom: 20px;
+      left: calc(50% - 55px);
+      width:110px;
+      height:100px;
+    }    
+    .gallery span{
+      transform:rotateY(calc(var(--i) * 45deg)) translateZ(140px);
+    }
+    .w {
+      background-color:transparent;
+      border-radius: 15px;
+      margin-top: 30px;
+      width: 300px;
+      height:100vmin;
       margin-bottom: 70px;
     }
   }
@@ -520,142 +542,17 @@ transitions
 .memories__section {
 background-color:var(--main-bg);
 padding-top: 50px;
-margin: 50px 50px;
+margin: 20px 20px;
 border-radius: 20px;
 display: flex;
 flex-direction: column;
 align-items: center;
 }
 
-.b_memo_qs {
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-text-align: center;
-color: var(--main-accent);
-}
-
-.update_btn {
-position: relative;
-padding: 15px 20px;
-border-radius: 20px;
-margin-top: 20px;
-margin-bottom: 20px;
-border: solid var(--main-accent);
-background-color: transparent;
-color: #fff;
-}
-
-.update_btn:hover {
-color: var(--main-accent);
-border: solid #fff;
-cursor: pointer;
-}
-
-.submit_btn {
-position: relative;
-padding: 10px;
-border-radius: 20px;
-margin-top: 5px;
-margin-bottom: 10px;
-border: solid var(--main-accent);
-background-color: transparent;
-color: #fff;
-}
-
-.submit_btn:hover {
-color: var(--main-accent);
-border: solid #fff;
-cursor: pointer;
-}
-
-.memo_questions {
-padding: 10px 10px;
-background-color: var(--secondary);
-border-radius: 15px;
-position: relative;
-align-content: center;
-margin-bottom: 10px;
-}
-
-.input_password {
-color: #000;
-background-color: #fff;
-border-radius: 5px;
-margin-top: 5px;
-margin-bottom: 5px;
-}
-
-.input_text_memo {
-padding: 8px;
-margin: 5px 0;
-width: 100%;
-min-height: 100px; /* Adjust the minimum height as needed */
-border: 1px solid #ccc;
-border-radius: 4px;
-box-sizing: border-box;
-font-size: 16px;
-line-height: 1.5;
-overflow-y: auto; /* Allow vertical scrollbar when needed */
-white-space: normal; /* Allow text to wrap */
-word-wrap: break-word; /* Ensure long words are broken and wrap onto the next line */
-word-break: break-all; /* Break words if they exceed the container's width */
-}
-
-.input_text_memo::placeholder {
-color: var(--main-bg);
-}
-
-.input_text_memo:hover {
-border: solid 3px var(--main-bg);
-}
-
-.input_date_memo {
-padding: 8px;
-margin: 5px 0;
-border: 1px solid #ccc;
-border-radius: 4px;
-box-sizing: border-box;
-font-size: 16px;
-line-height: 1.5;
-}
-
-.input_date_memo::-webkit-calendar-picker-indicator {
-background-color: transparent;
-color: #333;
-cursor: pointer;
-padding: 0;
-}
-
-.input_date_memo::-webkit-inner-spin-button,
-.input_date_memo::-webkit-clear-button {
-display: none;
-}
-
-.input_date_memo:focus,
-.input_date_memo:hover {
-border: solid 3px var(--main-bg);
-}
-
-.input_date_memo::placeholder {
-color: #999;
-}
-.submit_btn_memo {
-position: relative;
-padding: 10px;
-border-radius: 20px;
-margin-top: 10px;
-margin-bottom: 10px;
-border: solid var(--main-bg);
-background-color: transparent;
-color: #fff;
-}
-
-.submit_btn_memo:hover {
-color: var(--main-bg);
-border: solid #fff;
-cursor: pointer;
+@media only screen and (max-width: 1600px) {
+  .memories__section {
+    margin: 50px 50px;
+    }
 }
 
 .toggle__bar {
