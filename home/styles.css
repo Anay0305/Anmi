@@ -258,20 +258,160 @@ transform: translateY(0);
 }
 
 .gallery__section {
-background-color: #000;
-color: #fff;
-margin: auto;
-width: 100%;
+background-color: var(--main-bg);
+border-radius: 20px;
+margin: 50px 50px;
 box-sizing: border-box;
-height: 100vh;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
+display:grid;
+place-content:center;
+}
+
+.gallery{
+  position:relative;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  left: calc(50% - 150px);
+  width:300px;
+  height:150px;
+  transform-style:preserve-3d;
+  animation:rotate 60s linear infinite;
+}
+
+@keyframes rotate{
+  from{
+    transform:perspective(1200px) rotateY(0deg);
+  }
+  
+  to{
+    transform:perspective(1200px) rotateY(360deg);
+  }
+}
+
+.gallery span{
+  position:absolute;
+  width:100%;
+  height:100%;
+  transform-origin:center;
+  transform-style:preserve-3d;
+  transform:rotateY(calc(var(--i) * 45deg)) translateZ(380px);
+}
+
+.gallery span img{
+  position:absolute;
+  border: solid var(--main-accent);
+  border-radius: 10px;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.w {
+  background-color:transparent;
+  border: solid var(--main-accent);
+  border-radius: 15px;
+  margin-top: 30px;
+  width: 1200px;
+  height:80vmin;
+  margin-bottom: 70px;
+}
+
+.w h1 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: white;
+  font-size: 20px;
+  margin-left: 10px;
+  align-self: center;
+  position: absolute;
+}
+
+.ts {
+  width:100%; height:100%;
+  position:relative;
+  --barH:20%;/*active zone height = 100% - barH*/
+}
+
+.t {
+  --w:20%;
+  display:block; width:calc(var(--w)); height:var(--barH);
+  position:absolute; bottom:0; left:var(--l);
+  transform-origin:top left;
+}
+
+.t img {
+  margin-top: 20px;
+  border-radius: 15px;
+  display:block; width:100%; height:90%;
+  object-fit:cover;
+  transform:scale(1);
+}
+
+[type="radio"] { 
+  display:none; 
+}
+
+:checked + label.t {
+  left:0; bottom:var(--barH);
+  height:calc(100% - var(--barH));
+}
+
+:checked + label.t img {
+  object-fit:contain;
+}
+
+/* 
+optional
+*/
+
+.ts {/*thumbnails bar*/
+  perspective:100px;
+  perspective-origin:center center;
+  transform-style:preserve-3d;
+  pointer-events:none;
+}
+
+.ts:after {/*the plate*/
+  content:"";
+  display:block; width:100%; height:15px;
+  position:absolute; bottom:0;
+  background:linear-gradient(transparent 20%, rgba(0,0,0,0.1));
+  transform:rotateX(90deg)scaleX(1.2);
+  transform-origin:bottom center;
+}
+
+:not(:checked) + .t {/*inactive labels*/
+  transform:translate3d(0, 0, -5px);
+  pointer-events:auto;
+}
+
+:not(:checked) + .t:hover {
+  transform:translate3d(0, -25px, -5px);
+  box-shadow:0 30px 30px -25px rgba(0,0,0,0.3);
+  cursor:pointer;
+}
+
+:not(:checked) + .t img {
+  transform:scale(0.9);/*create gaps*/
+}
+
+:checked + .t {/*active label*/
+  box-shadow:0 0 0 transparent;
+  animation:anim 2s 1;
+} @keyframes anim {
+  from { transform:rotateY(6deg)rotateX(3deg) }
+}
+
+/* 
+transitions
+*/
+.t {/*active->inactive & hover->rest*/
+  transition:transform 0.5s, bottom 0.6s, left 0.6s, width 0.3s, box-shadow 1s;
+}
+.t:hover, :checked + .t {
+  transition:transform 0.5s, bottom 0.6s, left 0.6s, width 0.3s, box-shadow 0s;
 }
 
 .memories__section {
-background-color: #000;
+background-color:var(--main-bg);
 padding-top: 50px;
 margin: 50px 50px;
 border-radius: 20px;

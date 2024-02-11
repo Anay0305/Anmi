@@ -128,6 +128,24 @@ document.addEventListener("DOMContentLoaded", function () {
       appendTimelineMessages(data.specialDates, "special_dates");
     });
   });
+
+document.addEventListener("DOMContentLoaded", function() {
+  const imageContainer = document.getElementById("imageContainer");
+  const numberOfImages = 12; // Assuming you have 8 images
+
+  // Loop through each image and create span elements with img elements inside
+  for (let i = 1; i <= numberOfImages; i++) {
+    const span = document.createElement("span");
+    span.style.setProperty("--i", i);
+
+    const img = document.createElement("img");
+    img.src = `Photos/L${i}.jpg`; // Set the source dynamically
+    img.alt = `Image ${i}`;
+
+    span.appendChild(img);
+    imageContainer.appendChild(span);
+  }
+});
 function appendTimelineMessages(messages, containerId) {
   const container = document.getElementById(containerId);
   if (!container) return;
@@ -213,3 +231,25 @@ const hideMobileMenu = () => {
 };
 tabs.addEventListener("click", hideMobileMenu);
 navLogo.addEventListener("click", hideMobileMenu);
+
+const els = document.querySelectorAll("[type='radio']");
+for (const el of els)
+  el.addEventListener("input", e => reorder(e.target, els));
+reorder(els[0], els);
+
+function reorder(targetEl, els) {
+  const nItems = els.length;
+  let processedUncheck = 0;
+  for (const el of els) {
+    const containerEl = el.nextElementSibling;
+    if (el === targetEl) {//checked radio
+      containerEl.style.setProperty("--w", "100%");
+      containerEl.style.setProperty("--l", "0");
+    }
+    else {//unchecked radios
+      containerEl.style.setProperty("--w", `${100/(nItems-1)}%`);
+      containerEl.style.setProperty("--l", `${processedUncheck * 100/(nItems-1)}%`);
+      processedUncheck += 1;
+    }
+  }
+}
