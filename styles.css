@@ -13,8 +13,8 @@
   --secondary: rgba(107, 250, 255, 0.7);
   --primary: #fff;
   --bg-envelope-color: #f5edd1;
-  --envelope-tab: #C46EA1;
-  --envelope-cover: #b54a89;
+  --envelope-cover: #FFB6C1;
+  --envelope-tab: #D8BFD8;
   --shadow-color: rgba(0, 0, 0, 0.2);
   --txt-color: #444;
 }
@@ -184,7 +184,7 @@ button.lock_tick:hover {
 .navbar {
   position: sticky;
   top: 0;
-  background: var(--main-bg);
+  background: linear-gradient(135deg, #000000, #4B0082);
   height: 50px;
   display: flex;
   justify-content: center;
@@ -224,7 +224,7 @@ button.lock_tick:hover {
 }
 
 .navbar__links {
-  color: #fff;
+  color: orange;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -376,9 +376,6 @@ border-radius: 12px;
 font-size: 24px;
 color: #333;
 margin: 20px 0;
-opacity: 0;
-transform: translateY(20px);
-transition: opacity 1s, transform 1s;
 }
 
 /* Add some animation when quote appears */
@@ -388,7 +385,7 @@ transform: translateY(0);
 }
 
 .gallery__section {
-background-color: var(--main-bg);
+background: linear-gradient(135deg, #000000, #483D8B);
 border-radius: 20px;
 margin: 20px 20px;
 box-sizing: border-box;
@@ -647,30 +644,35 @@ transitions
     }
   }
 
-  @media only screen and (max-width: 400px) {
+  @media only screen and (max-width: 440px) {
+
+    .gallery__section {
+      margin-left: 0px;
+      margin-right: 0px;
+      }
     
     .gallery{
       margin-top: 70px;
       margin-bottom: 20px;
-      left: calc(50% - 55px);
-      width:110px;
+      left: calc(50% - 60px);
+      width:120px;
       height:100px;
     }    
     .gallery span{
-      transform:rotateY(calc(var(--i) * 45deg)) translateZ(140px);
+      transform:rotateY(calc(var(--i) * 45deg)) translateZ(150px);
     }
     .w {
       background-color:transparent;
       border-radius: 15px;
       margin-top: 30px;
-      width: 300px;
+      width: 340px;
       height:100vmin;
       margin-bottom: 70px;
     }
   }
 
 .memories__section {
-background-color:var(--main-bg);
+background: linear-gradient(135deg, #000000, #800080);
 padding-top: 50px;
 margin: 20px 20px;
 border-radius: 20px;
@@ -679,9 +681,10 @@ flex-direction: column;
 align-items: center;
 }
 
-@media only screen and (max-width: 1600px) {
+@media only screen and (max-width: 440px) {
   .memories__section {
-    margin: 50px 50px;
+    margin-left: 0px;
+    margin-right: 0px;
     }
 }
 
@@ -717,6 +720,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 padding: 10px 0;
+margin-bottom: 150px;
 }
 .timeline {
 width: 80%;
@@ -856,13 +860,23 @@ color: var(--main-accent);
 .special__section {
   overflow: hidden;
   max-height: 100vh;
-  background-image: url(https://assets.codepen.io/4927073/Group2.png), url(https://assets.codepen.io/4927073/Background6.png), linear-gradient(33deg, #2c303a, #2c303a);
+  background-image: url(https://assets.codepen.io/4927073/Group2.png), url(https://assets.codepen.io/4927073/Background6.png), linear-gradient(135deg, #3C1642, #6D6875);
   background-size: cover;
-  background-position: 50% 50%;
+  background-position: 100% 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+@media only screen and (max-width: 440px) {
+  .special__section {
+    margin-left: 0px;
+    margin-right: 0px;
+    }
 }
 
 .special__section h1 {
@@ -880,7 +894,6 @@ color: var(--main-accent);
   top: calc(50% - 30px); /* Center stamp vertically */
   left: calc(50% - 30px); /* Center stamp horizontally */
   z-index: 2; /* Ensure stamp is above the envelope */
-  box-shadow: 0 1px 6px var(--shadow-color);
 }
 .container {
   height: 100vh;
@@ -890,7 +903,7 @@ color: var(--main-accent);
 }
 
 .container > .envelope-wrapper {
-  background: #fff; /* Change envelope background color */
+  background: var(--bg-envelope-color); /* Change envelope background color */
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.5); /* Change envelope box shadow */
   position: absolute; /* Make the envelope wrapper relative for absolute positioning */
 }
@@ -927,10 +940,11 @@ color: var(--main-accent);
   visibility: hidden;
   position: absolute;
   bottom: 0;
-  right: 10%;
-  width: 80%;
+  right: 15%;
+  width: 70%;
   height: 135%;
-  background: var(--primary);
+  background: url("Letter.jpeg") center/cover no-repeat fixed;
+  background-size: 100% 100%; /* Added to make the background image cover the full size */
   text-align: center;
   transition: all 1s ease-in-out, bottom 1s ease-in-out;
   box-shadow: 0 0 5px var(--shadow-color);
@@ -1040,111 +1054,6 @@ color: var(--main-accent);
   cursor: pointer; /* Change cursor to pointer on hover */
 }
 
-
-@media only screen and (max-width: 400px) {
-  .envelope > .letter {
-    visibility: hidden;
-    position: absolute;
-    bottom: 0;
-    right: 0%;
-    width: 0%;
-    height: 135%;
-    background: var(--primary);
-    text-align: center;
-    transition: all 1s ease-in-out, bottom 1s ease-in-out;
-    box-shadow: 0 0 5px var(--shadow-color);
-    padding: 20px 10px;
-  }
-  .envelope-wrapper > .envelope {
-    position: relative;
-    width: 350px;
-    height: 230px;
-  }
-  .envelope-wrapper > .envelope::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    z-index: 2;
-    border-top: 130px solid var(--envelope-tab);
-    border-right: 176px solid transparent;
-    border-left: 176px solid transparent;
-    transform-origin: top;
-    transition: all 0.5s ease-in-out 0.7s;
-  }
-  .envelope-wrapper > .envelope::after {
-    content: "";
-    position: absolute;
-    z-index: 2;
-    width: 0px;
-    height: 0px;
-    border-top: 130px solid transparent;
-    border-right: 176px solid var(--envelope-cover);
-    border-bottom: 150px solid var(--envelope-cover);
-    border-left: 176px solid var(--envelope-cover);
-  }
-  .stamp {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    top: calc(50% - 25px); /* Center stamp vertically */
-    left: calc(50% - 25px); /* Center stamp horizontally */
-    z-index: 2; /* Ensure stamp is above the envelope */
-    box-shadow: 0 1px 6px var(--shadow-color);
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .envelope > .letter {
-    visibility: hidden;
-    position: absolute;
-    bottom: 0;
-    right: 15%;
-    width: 40%;
-    height: 135%;
-    background: var(--primary);
-    text-align: center;
-    transition: all 1s ease-in-out, bottom 1s ease-in-out;
-    box-shadow: 0 0 5px var(--shadow-color);
-    padding: 20px 10px;
-  }
-  .envelope-wrapper > .envelope {
-    position: relative;
-    width: 350px;
-    height: 230px;
-  }
-  .envelope-wrapper > .envelope::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    z-index: 2;
-    border-top: 130px solid var(--envelope-tab);
-    border-right: 176px solid transparent;
-    border-left: 176px solid transparent;
-    transform-origin: top;
-    transition: all 0.5s ease-in-out 0.7s;
-  }
-  .envelope-wrapper > .envelope::after {
-    content: "";
-    position: absolute;
-    z-index: 2;
-    width: 0px;
-    height: 0px;
-    border-top: 130px solid transparent;
-    border-right: 176px solid var(--envelope-cover);
-    border-bottom: 150px solid var(--envelope-cover);
-    border-left: 176px solid var(--envelope-cover);
-  }
-  .stamp {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    top: calc(50% - 25px); /* Center stamp vertically */
-    left: calc(50% - 25px); /* Center stamp horizontally */
-    z-index: 2; /* Ensure stamp is above the envelope */
-    box-shadow: 0 1px 6px var(--shadow-color);
-  }
-}
-
 @media only screen and (max-width: 768px) {
   .envelope > .letter {
     visibility: hidden;
@@ -1153,7 +1062,8 @@ color: var(--main-accent);
     right: 25%;
     width: 50%;
     height: 135%;
-    background: var(--primary);
+    background: url("Letter.jpeg") center/cover no-repeat fixed;
+    background-size: 100% 100%; /* Added to make the background image cover the full size */
     text-align: center;
     transition: all 1s ease-in-out, bottom 1s ease-in-out;
     box-shadow: 0 0 5px var(--shadow-color);
@@ -1192,6 +1102,84 @@ color: var(--main-accent);
     height: 55px;
     top: calc(50% - 27.5px); /* Center stamp vertically */
     left: calc(50% - 27.5px); /* Center stamp horizontally */
+    z-index: 2; /* Ensure stamp is above the envelope */
+    box-shadow: 0 1px 6px var(--shadow-color);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .envelope-wrapper > .envelope {
+    position: relative;
+    width: 350px;
+    height: 230px;
+  }
+  .envelope-wrapper > .envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    border-top: 130px solid var(--envelope-tab);
+    border-right: 176px solid transparent;
+    border-left: 176px solid transparent;
+    transform-origin: top;
+    transition: all 0.5s ease-in-out 0.7s;
+  }
+  .envelope-wrapper > .envelope::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    width: 0px;
+    height: 0px;
+    border-top: 130px solid transparent;
+    border-right: 176px solid var(--envelope-cover);
+    border-bottom: 150px solid var(--envelope-cover);
+    border-left: 176px solid var(--envelope-cover);
+  }
+  .stamp {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: calc(50% - 25px); /* Center stamp vertically */
+    left: calc(50% - 25px); /* Center stamp horizontally */
+    z-index: 2; /* Ensure stamp is above the envelope */
+    box-shadow: 0 1px 6px var(--shadow-color);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .envelope-wrapper > .envelope {
+    position: relative;
+    width: 350px;
+    height: 230px;
+  }
+  .envelope-wrapper > .envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    border-top: 130px solid var(--envelope-tab);
+    border-right: 176px solid transparent;
+    border-left: 176px solid transparent;
+    transform-origin: top;
+    transition: all 0.5s ease-in-out 0.7s;
+  }
+  .envelope-wrapper > .envelope::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    width: 0px;
+    height: 0px;
+    border-top: 130px solid transparent;
+    border-right: 176px solid var(--envelope-cover);
+    border-bottom: 150px solid var(--envelope-cover);
+    border-left: 176px solid var(--envelope-cover);
+  }
+  .stamp {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: calc(50% - 25px); /* Center stamp vertically */
+    left: calc(50% - 25px); /* Center stamp horizontally */
     z-index: 2; /* Ensure stamp is above the envelope */
     box-shadow: 0 1px 6px var(--shadow-color);
   }

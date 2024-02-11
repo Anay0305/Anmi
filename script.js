@@ -32,6 +32,17 @@ function checkPIN() {
                 document.querySelector('.lock_container').remove();
             }, 500);
             document.body.classList.remove('no-scroll');
+            const typed = new Typed(".typing", {
+              strings: data.quotes,
+              shuffle: true,
+              fadeOut: true,
+              loop: true,
+              typeSpeed: 30,
+              backSpeed: 10,
+              backDelay: 1000,
+              showCursor: false,
+              smartBackspace: true
+            });
         } else {
             alert("Incorrect PIN. Please try again.");
             userInput = ''; // Clear PIN input
@@ -40,30 +51,6 @@ function checkPIN() {
       });
 }
 
-const quoteTextElement = document.getElementById('quoteText');
-
-// Function to display a random quote
-function displayRandomQuote() {
-  fetch("database.json")
-      .then(response => response.json())
-      .then(data => {
-        const quotes = data.quotes;
-        const randomIndex = Math.floor(Math.random() * quotes.length);
-        quoteTextElement.innerText = `${quotes[randomIndex]}`;
-        // Add 'show' class to trigger the animation
-        quoteTextElement.classList.add('show');
-        // Remove 'show' class after the animation completes
-        setTimeout(() => {
-          quoteTextElement.classList.remove('show');
-        }, 3000); // Adjust the time based on your animation duration
-      });
-}
-// Display a random quote on page load
-displayRandomQuote();
-// Set interval to display a new quote every 5 seconds (5000 milliseconds)
-setInterval(() => {
-  displayRandomQuote();
-}, 6000);
 
 function hexToRgb(hex) {
   // Remove # if present
@@ -103,7 +90,6 @@ stamp.addEventListener('click', () => {
   stamp.style.visibility = "hidden";
   letter.style.visibility = "visible";
   envelope.classList.add('flap');
-  h_special.classList.add('noshow')
   setTimeout(() => {
     envelope.classList.add('closed');
   }, 2000);
@@ -124,7 +110,6 @@ letter.addEventListener('click', () => {
   }, 2000);
   setTimeout(() => {
     envelope.classList.add('e_close');
-    h_special.classList.remove('noshow');
   }, 3000)
   setTimeout(() => {
     envelope.classList.remove('e_close');
@@ -172,6 +157,7 @@ function appendTimelineMessages(messages, containerId) {
   const container = document.getElementById(containerId);
   if (!container) return;
   const timelineList = container.querySelector("ul");
+  messages.sort((a, b) => new Date(a.date) - new Date(b.date));
   messages.forEach(message => {
     const listItem = document.createElement("li");
     const h1 = message.date ? `<h1>${formatDate(message.date)}</h1>` : "";
@@ -200,13 +186,7 @@ function formatDate(dateString) {
     return (s[(v-20)%10]||s[v]||s[0]);
   }
 hamburger.addEventListener("click", mobileMenu);
-const update_btn = document.querySelector("#btn_update");
-update_btn.addEventListener("click", function () {
-  document.querySelector("#love_code").classList.remove("noshow");
-  document.querySelector("#btn_update").classList.remove("update_btn");
-  document.querySelector("#btn_update").classList.add("submit_btn");
-  document.querySelector("#btn_update").textContent = "Submit";
-});
+
 const navLogo = document.querySelector("#navbar__logo");
 const highlightMenu = () => {
   const activeElement = document.querySelector(".highlight");
@@ -224,12 +204,12 @@ const highlightMenu = () => {
     homeMenu.classList.remove("highlight");
     resumeMenu.classList.remove("highlight");
     return;
-  } else if (window.innerWidth > 960 && scrollPos < 2300) {
+  } else if (window.innerWidth > 960 && scrollPos < 4000) {
     resumeMenu.classList.add("highlight");
     aboutMenu.classList.remove("highlight");
     stackMenu.classList.remove("highlight");
     return;
-  } else if (window.innerWidth > 960 && scrollPos < 4000) {
+  } else if (window.innerWidth > 960 && scrollPos < 5000) {
     stackMenu.classList.add("highlight");
     resumeMenu.classList.remove("highlight");
     return;
