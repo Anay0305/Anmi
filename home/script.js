@@ -197,17 +197,17 @@ const highlightMenu = () => {
     homeMenu.classList.add("highlight");
     aboutMenu.classList.remove("highlight");
     return;
-  } else if (window.innerWidth > 960 && scrollPos < 900) {
+  } else if (window.innerWidth > 960 && scrollPos < 1600) {
     aboutMenu.classList.add("highlight");
     homeMenu.classList.remove("highlight");
     resumeMenu.classList.remove("highlight");
     return;
-  } else if (window.innerWidth > 960 && scrollPos < 1500) {
+  } else if (window.innerWidth > 960 && scrollPos < 2300) {
     resumeMenu.classList.add("highlight");
     aboutMenu.classList.remove("highlight");
     stackMenu.classList.remove("highlight");
     return;
-  } else if (window.innerWidth > 960 && scrollPos < 3000) {
+  } else if (window.innerWidth > 960 && scrollPos < 4000) {
     stackMenu.classList.add("highlight");
     resumeMenu.classList.remove("highlight");
     return;
