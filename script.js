@@ -95,6 +95,7 @@ const stamp = document.querySelector('.stamp');
 const envelope = document.querySelector('.envelope-wrapper');
 const letter = document.querySelector('.letter');
 const special___ = document.querySelector('.special__section');
+const h_special = document.getElementById('heading_special');
 
 let isFlapped = false;
 
@@ -102,6 +103,7 @@ stamp.addEventListener('click', () => {
   stamp.style.visibility = "hidden";
   letter.style.visibility = "visible";
   envelope.classList.add('flap');
+  h_special.classList.add('noshow')
   setTimeout(() => {
     envelope.classList.add('closed');
   }, 2000);
@@ -122,6 +124,7 @@ letter.addEventListener('click', () => {
   }, 2000);
   setTimeout(() => {
     envelope.classList.add('e_close');
+    h_special.classList.remove('noshow');
   }, 3000)
   setTimeout(() => {
     envelope.classList.remove('e_close');

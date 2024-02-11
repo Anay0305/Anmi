@@ -865,6 +865,14 @@ color: var(--main-accent);
   flex-direction: column;
 }
 
+.special__section h1 {
+  position: relative;
+  color: var(--main-accent);
+  margin-top: 50px;
+  font-weight: 500;
+  font-size: 30px;
+}
+
 .stamp {
   position: absolute;
   width: 60px;
