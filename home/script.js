@@ -93,13 +93,21 @@ stamp.addEventListener('click', () => {
 });
 
 letter.addEventListener('click', () => {
-  envelope.style.visibility = "visible";
+  envelope.classList.add('e_open');
   envelope.classList.remove('closed');
   setTimeout(() => {
+    envelope.style.visibility = "visible";
     envelope.classList.remove('flap');
     letter.style.visibility = "hidden";
     stamp.style.visibility = "visible";
   }, 2000);
+  setTimeout(() => {
+    envelope.classList.add('e_close');
+  }, 3000)
+  setTimeout(() => {
+    envelope.classList.remove('e_close');
+    envelope.classList.remove('e_open');
+  }, 4000)
   isFlapped = false;
 });
 

@@ -269,6 +269,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 }
+
 .memories__section {
 background-color: #000;
 padding-top: 50px;
@@ -672,6 +673,27 @@ color: var(--main-accent);
   z-index: 0;
 }
 
+.e_open > .envelope:before {
+  animation: rotateFlap 1s forwards;
+  animation-delay: 0s; /* Add a delay of 1 second */
+  z-index: 0;
+}
+
+.e_close > .envelope:before {
+  animation: rotate_close_Flap 1s forwards;
+  animation-delay: 0s; /* Add a delay of 1 second */
+  z-index: 0;
+}
+
+@keyframes rotate_close_Flap {
+  0% {
+    transform: rotateX(180deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
 @keyframes rotateFlap {
   0% {
     transform: rotateX(0deg);
@@ -728,12 +750,65 @@ color: var(--main-accent);
   cursor: pointer; /* Change cursor to pointer on hover */
 }
 
+
+@media only screen and (max-width: 400px) {
+  .envelope > .letter {
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    right: 0%;
+    width: 0%;
+    height: 135%;
+    background: var(--primary);
+    text-align: center;
+    transition: all 1s ease-in-out, bottom 1s ease-in-out;
+    box-shadow: 0 0 5px var(--shadow-color);
+    padding: 20px 10px;
+  }
+  .envelope-wrapper > .envelope {
+    position: relative;
+    width: 350px;
+    height: 230px;
+  }
+  .envelope-wrapper > .envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    border-top: 130px solid var(--envelope-tab);
+    border-right: 176px solid transparent;
+    border-left: 176px solid transparent;
+    transform-origin: top;
+    transition: all 0.5s ease-in-out 0.7s;
+  }
+  .envelope-wrapper > .envelope::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    width: 0px;
+    height: 0px;
+    border-top: 130px solid transparent;
+    border-right: 176px solid var(--envelope-cover);
+    border-bottom: 150px solid var(--envelope-cover);
+    border-left: 176px solid var(--envelope-cover);
+  }
+  .stamp {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: calc(50% - 25px); /* Center stamp vertically */
+    left: calc(50% - 25px); /* Center stamp horizontally */
+    z-index: 2; /* Ensure stamp is above the envelope */
+    box-shadow: 0 1px 6px var(--shadow-color);
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .envelope > .letter {
     visibility: hidden;
     position: absolute;
     bottom: 0;
-    right: 10%;
+    right: 15%;
     width: 40%;
     height: 135%;
     background: var(--primary);
