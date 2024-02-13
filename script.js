@@ -204,7 +204,7 @@ const highlightMenu = () => {
     homeMenu.classList.remove("highlight");
     resumeMenu.classList.remove("highlight");
     return;
-  } else if (window.innerWidth > 960 && scrollPos < 9700) {
+  } else if (window.innerWidth > 960 && scrollPos < 9600) {
     resumeMenu.classList.add("highlight");
     aboutMenu.classList.remove("highlight");
     stackMenu.classList.remove("highlight");
