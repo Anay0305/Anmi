@@ -200,6 +200,7 @@ button.lock_tick:hover {
   z-index: 1;
   width: 100%;
   margin: 0 auto;
+  opacity: 0.85;
   padding: 0 50px;
 }
 
