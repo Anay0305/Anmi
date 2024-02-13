@@ -204,12 +204,12 @@ const highlightMenu = () => {
     homeMenu.classList.remove("highlight");
     resumeMenu.classList.remove("highlight");
     return;
-  } else if (window.innerWidth > 960 && scrollPos < 4000) {
+  } else if (window.innerWidth > 960 && scrollPos < 9000) {
     resumeMenu.classList.add("highlight");
     aboutMenu.classList.remove("highlight");
     stackMenu.classList.remove("highlight");
     return;
-  } else if (window.innerWidth > 960 && scrollPos < 5000) {
+  } else if (window.innerWidth > 960) {
     stackMenu.classList.add("highlight");
     resumeMenu.classList.remove("highlight");
     return;
