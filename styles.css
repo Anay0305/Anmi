@@ -225,7 +225,7 @@ button.lock_tick:hover {
 }
 
 .navbar__links {
-  color: orange;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
